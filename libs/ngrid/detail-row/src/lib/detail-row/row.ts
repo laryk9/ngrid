@@ -72,7 +72,9 @@ export class PblNgridDetailRowComponent extends PblNgridRowComponent implements 
         if (event.type === 'data' && event.row === this.context.$implicit) {
           const { excludeToggleFrom } = this.plugin;
           if (!excludeToggleFrom || !excludeToggleFrom.some( c => event.column.id === c )) {
-            this.toggle();
+            if(this.element.parentElement) {
+              this.toggle();
+            }
           }
         }
       });
